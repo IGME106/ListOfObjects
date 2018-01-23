@@ -12,6 +12,20 @@ namespace ListOfObjects
         private string major;
         private int yearOfBirth;
 
+        public Student()                                                // Default constructor
+        {
+            FullName = "Non-specified Name";
+            Major = "Non-specified Major";
+            YearOfBirth = 1900;
+        }
+
+        public Student(string fullName, string major, int yearOfBirth)  // Parameterized constructor
+        {
+            FullName = fullName;
+            Major = major;
+            YearOfBirth = yearOfBirth;
+        }
+
         public string FullName
         {
             set { fullName = value; }
@@ -28,6 +42,17 @@ namespace ListOfObjects
         {
             set { yearOfBirth = value; }
             get { return this.yearOfBirth; }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine("Name: " + this.FullName);
+            stringBuilder.AppendLine("Major: " + this.Major);
+            stringBuilder.AppendLine("Year: " + this.YearOfBirth);
+
+            return (stringBuilder.ToString());
         }
     }
 }
